@@ -3,7 +3,7 @@
 Welcome to a collection of exciting Java projects! This README provides an overview of each project and its key features. You can use the table of contents below to navigate to a specific project that piques your interest.
 
 ## Table of Contents
-
+📋 **Project Status: In Progress**
 1. [Number Game](#number-game) 🎲
 2. [Word Counter](#word-counter) 📊
 3. [Student Management System](#student-management-system) 🎓
