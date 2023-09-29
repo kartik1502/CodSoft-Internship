@@ -12,7 +12,7 @@ Welcome to a collection of exciting Java projects! This README provides an overv
 
 ---
 
-## Number Game 🎲
+## Number Game🎲
 
 **Description:** A fun number guessing game where you try to guess a random number within a specified range.
 
@@ -32,7 +32,7 @@ Welcome to a collection of exciting Java projects! This README provides an overv
 
 ---
 
-## Word Counter 📊
+## Word Counter📊
 
 **Description:** A tool to count the number of words in a text or a file.
 
@@ -51,7 +51,7 @@ Welcome to a collection of exciting Java projects! This README provides an overv
 
 ---
 
-## Student Management System 🎓
+## Student Management System🎓
 
 **Description:** An efficient system to manage student information.
 
@@ -64,7 +64,7 @@ Welcome to a collection of exciting Java projects! This README provides an overv
 
 ---
 
-## ATM Interface 💳
+## ATM Interface💳
 
 **Description:** Simulate an ATM machine with various banking options.
 
@@ -76,7 +76,7 @@ Welcome to a collection of exciting Java projects! This README provides an overv
 
 ---
 
-## Address Book System 📇
+## Address Book System📇
 
 **Description:** An efficient system to manage your contacts.
 
