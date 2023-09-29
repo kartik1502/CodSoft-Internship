@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: word-counter
+    file_present: File uploaded successfully
+    file_not_found: File not found
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+
