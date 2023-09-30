@@ -13,9 +13,11 @@ import java.util.List;
 @Builder
 public class ValidateData {
 
-    private boolean isFilePresent;
+    private boolean isFilePresent = false;
 
     private String fileValidation;
+
+    private boolean isPrintable = true;
 
     private String printableData;
 }

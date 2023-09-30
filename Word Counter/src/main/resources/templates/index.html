@@ -181,6 +181,10 @@
 </style>
 <body>
 <div class="alert alert-success" role="alert" th:if="${isFilePresent}"> <span th:text="${fileValidation}"></span> </div>
+<div class="alert alert-danger" th:if="${errorMessage}">
+    <span th:text="${errorMessage}"></span>
+</div>
+
 <div class="container">
     <div class="form-container">
         <form th:object="${formData}" class="form" method="post" enctype="multipart/form-data" action="/file/analyze">
@@ -201,7 +205,7 @@
           <button class="form-submit-btn" type="submit">Submit</button>
         </form>
       </div>
-        <div class="card" th:if="${isFilePresent}">
+        <div class="card" th:if="${isFilePresent and isPrintable}">
             <h3 class="card__title">Readable content from file:
             </h3>
             <p class="card__content"><span th:text="${printableData}"></span></p>

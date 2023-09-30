@@ -6,6 +6,7 @@ spring:
     name: word-counter
     file_present: File uploaded successfully
     file_not_found: File not found
+    file_type_not_supported: File type not supported
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html

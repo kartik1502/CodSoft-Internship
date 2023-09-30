@@ -22,16 +22,28 @@ public class WordCounterController {
 
     @RequestMapping("/index")
     public String index(Model model) {
+
+        model.addAttribute("isFilePresent", false);
+        model.addAttribute("printableData", false);
+        model.addAttribute("errorMessage", false);
         return "index";
     }
 
     @PostMapping("/analyze")
     public String analyze(@ModelAttribute("formData") FormData formData, Model model) throws IOException {
 
+        if (formData.getMultipartFile() != null && !formData.getMultipartFile().isEmpty() &&
+                formData.getText() != null && !formData.getText().isEmpty()) {
+            model.addAttribute("isFilePresent", false);
+            model.addAttribute("isPrintable", false);
+            model.addAttribute("errorMessage", "Please provide either a file or text, not both.");
+            return "index";
+        }
         ValidateData validateData = wordCounterService.verifyFile(formData);
         model.addAttribute("isFilePresent", validateData.isFilePresent());
         model.addAttribute("printableData", validateData.getPrintableData());
         model.addAttribute("fileValidation", validateData.getFileValidation());
-        return "index";
+        model.addAttribute("isPrintable", validateData.isPrintable());
+        return "/index";
     }
 }
