@@ -26,6 +26,7 @@ public class WordCounterController {
         model.addAttribute("isFilePresent", false);
         model.addAttribute("printableData", false);
         model.addAttribute("errorMessage", false);
+        model.addAttribute("isAnalyzed", false);
         return "index";
     }
 
@@ -44,6 +45,8 @@ public class WordCounterController {
         model.addAttribute("printableData", validateData.getPrintableData());
         model.addAttribute("fileValidation", validateData.getFileValidation());
         model.addAttribute("isPrintable", validateData.isPrintable());
+        model.addAttribute("isAnalyzed", validateData.isAnalyzed());
+        model.addAttribute("analysisReport", validateData.getAnalysisReport());
         return "/index";
     }
 }

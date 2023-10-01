@@ -20,4 +20,8 @@ public class ValidateData {
     private boolean isPrintable = true;
 
     private String printableData;
+
+    private boolean isAnalyzed = false;
+
+    private AnalysisReport analysisReport;
 }

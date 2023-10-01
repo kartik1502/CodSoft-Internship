@@ -10,9 +10,9 @@
     .container {
         margin-top: 5%;
         display: flex;
-        justify-content: space-between; /* Align items horizontally with space in between */
-        align-items: flex-start; /* Align items vertically at the top */
-        flex-wrap: wrap; /* Allow items to wrap to the next row if needed */
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
     }
     .form-container {
         width: 400px;
@@ -136,7 +136,6 @@
         width: 400px;
     }
 
-    /* this card is inspired form this - https://georgefrancis.dev/ */
 
     .card {
         width: 400px;
@@ -150,7 +149,6 @@
         border-radius: var(--border-radius);
         background: #f1f1f3;
         position: relative;
-        /* Set a maximum width if needed */
     }
 
     .card > * + * {
@@ -168,7 +166,7 @@
         font-weight: bold;
     }
 
-    .card .card__date {
+    .card {
         color: #6e6b80;
         font-size: 0.8rem;
     }
@@ -176,6 +174,37 @@
     .file_format {
         color: #717171;
         font-size: 10px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #04AA6D;
+        color: white;
+    }
+
+    .scrollable-content {
+        max-height: 300px;
+        overflow: auto;
     }
 
 </style>
@@ -209,10 +238,53 @@
             <h3 class="card__title">Readable content from file:
             </h3>
             <p class="card__content"><span th:text="${printableData}"></span></p>
-            <div class="card__date">
-                April 15, 2022
-            </div>
         </div>
+    <div class="card" th:if="${isAnalyzed}">
+        <h3 class="card__title">Readable content from file:</h3>
+        <div class="card__content scrollable-content">
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Words Count</td>
+                    <td th:text="${analysisReport.wordsCount}"></td>
+                </tr>
+                <tr>
+                    <td>Characters Count</td>
+                    <td th:text="${analysisReport.charactersCount}"></td>
+                </tr>
+                <tr>
+                    <td>Unique Words Count</td>
+                    <td th:text="${analysisReport.uniqueWordsCount}"></td>
+                </tr>
+                <tr>
+                    <td>Unique Words</td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>
+                                    <p th:each="word : ${analysisReport.uniqueWords}" th:text="${word}"></p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Character Frequency</td>
+                    <td>
+                        <table>
+                            <tr th:each="entry : ${analysisReport.characterFrequency.entrySet()}">
+                                <td th:text="${entry.getKey()}"></td> <!-- Display the key in the first column -->
+                                <td th:text="${entry.getValue()}"></td> <!-- Display the value in the second column -->
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>
 </body>
 </html>
